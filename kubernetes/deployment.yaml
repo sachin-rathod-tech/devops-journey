@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: sachin-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:  
+      app: dev 
+  template:
+    metadata: 
+      name: my-template
+      labels: 
+        app: dev 
+    spec: 
+      containers:
+      - name: sachin-cont001
+        image: rathodsr/netflix:latest
+        ports:
+        - containerPort: 80
