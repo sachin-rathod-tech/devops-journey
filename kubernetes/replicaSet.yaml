@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: sachin-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:  
+      app: dev 
+  template:
+    metadata: 
+      name: my-temp002
+      labels: 
+        app: dev 
+    spec: 
+      containers:
+      - name: sachin-cont002
+        image: rathodsr/super-mario
+        ports:
+        - containerPort: 80
