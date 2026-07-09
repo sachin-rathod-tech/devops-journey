@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: sachin-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:  
+      app: green 
+  template:
+    metadata: 
+      name: my-template
+      labels: 
+        app: green 
+    spec: 
+      containers:
+      - name: sachin-cont004
+        image: rathodsr/green
+        ports:
+        - containerPort: 80
