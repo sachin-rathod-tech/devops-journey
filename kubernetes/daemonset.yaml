@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: sachin-dmn
+spec:
+  selector:
+    matchLabels:
+      app: daemon
+  template:
+    metadata:
+      name: dmn-tmp
+      labels:
+        app: daemon
+    spec:
+      containers:
+      - name: dmn-cont
+        image: prom/node-exporter:v1.3.1
+        ports:
+        - containerPort: 80
+                              
